@@ -214,11 +214,14 @@ async function uploadLogo() {
 
   setMsg("cfgMsg", "Uploading logo...");
 
-  const res = await api("uploadLogo", {
-    token: TOKEN,
-    filename: file.name,
-    base64
-  });
+  const res = await fetch(API_URL + "?action=uploadLogo&token=" + encodeURIComponent(TOKEN), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      filename: file.name,
+      base64: base64
+    })
+  }).then(r => r.json());
 
   if (!res.ok) {
     setMsg("cfgMsg", res.message || "Upload gagal.", false);
@@ -320,3 +323,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     showLogin("");
   }
 });
+
