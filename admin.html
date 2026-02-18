@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — KPU SULBAR MICROSITE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- LOGIN CARD -->
+    <div id="loginCard" class="card">
+      <div class="h1">Dashboard Admin</div>
+      <div class="p">Login untuk mengelola microsite.</div>
+
+      <div class="mt grid2">
+        <div>
+          <label>NIP</label>
+          <input id="nip" placeholder="Masukkan NIP" />
+        </div>
+        <div>
+          <label>Password</label>
+          <input id="password" type="password" placeholder="Masukkan password" />
+        </div>
+      </div>
+
+      <div class="mt">
+        <button class="btn primary" id="btnLogin">Login</button>
+      </div>
+
+      <div id="loginMsg" class="small mt"></div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashCard" class="card" style="display:none;">
+      <div class="topbar">
+        <div>
+          <div class="h1" style="margin:0;">Panel Microsite</div>
+          <div class="p" id="userInfo">...</div>
+        </div>
+
+        <div style="display:flex; gap:10px;">
+          <a class="btn" href="index.html">Lihat Publik</a>
+          <button class="btn danger" id="btnLogout">Logout</button>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- CONFIG -->
+      <div style="font-weight:900;">Konfigurasi</div>
+      <div class="grid2 mt">
+        <div>
+          <label>Judul Site</label>
+          <input id="site_title" />
+        </div>
+        <div>
+          <label>Subtitle</label>
+          <input id="site_subtitle" />
+        </div>
+      </div>
+
+      <div class="grid2 mt">
+        <div>
+          <label>Theme</label>
+          <select id="theme">
+            <option value="dark">Dark</option>
+            <option value="light">Light (coming soon)</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Logo URL</label>
+          <input id="logo_url" placeholder="auto dari upload / manual link" />
+        </div>
+      </div>
+
+      <div class="mt grid2">
+        <div>
+          <label>Upload Logo (PNG / SVG)</label>
+          <input id="logoFile" type="file" accept="image/png,image/svg+xml" />
+        </div>
+        <div style="display:flex; align-items:end;">
+          <button class="btn primary" id="btnUploadLogo">Upload</button>
+        </div>
+      </div>
+
+      <div class="mt">
+        <button class="btn primary" id="btnSaveConfig">Simpan Config</button>
+        <div id="cfgMsg" class="small mt"></div>
+      </div>
+
+      <hr />
+
+      <!-- LINKS -->
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-weight:900;">Daftar Link</div>
+        <button class="btn primary" id="btnAddLink">+ Tambah Link</button>
+      </div>
+
+      <div id="linksAdmin" class="links mt"></div>
+
+      <div id="linkFormBox" class="mt" style="display:none;">
+        <hr />
+        <div style="font-weight:900;">Form Link</div>
+
+        <input id="link_id" type="hidden" />
+
+        <div class="grid2 mt">
+          <div>
+            <label>Judul</label>
+            <input id="link_title" placeholder="Contoh: Website KPU" />
+          </div>
+          <div>
+            <label>URL</label>
+            <input id="link_url" placeholder="https://..." />
+          </div>
+        </div>
+
+        <div class="grid2 mt">
+          <div>
+            <label>Icon (emoji / teks)</label>
+            <input id="link_icon" placeholder="🌐 / 📌 / 🔗" />
+          </div>
+          <div>
+            <label>Urutan</label>
+            <input id="link_order" type="number" value="1" />
+          </div>
+        </div>
+
+        <div class="grid2 mt">
+          <div>
+            <label>Aktif?</label>
+            <select id="link_active">
+              <option value="true">Aktif</option>
+              <option value="false">Nonaktif</option>
+            </select>
+          </div>
+          <div style="display:flex; gap:10px; align-items:end;">
+            <button class="btn primary" id="btnSaveLink">Simpan</button>
+            <button class="btn" id="btnCancelLink">Batal</button>
+          </div>
+        </div>
+
+        <div id="linkMsg" class="small mt"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
